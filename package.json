@@ -4,7 +4,8 @@
   "description": "Web UI for Chronograph, a time tracker app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx parcel ./src/index.html",
+    "built": "npx parcel build .src/index.html"
   },
   "repository": {
     "type": "git",
