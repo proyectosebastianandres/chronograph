@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // Importar componentes de Material UI
 import { withStyles } from "@material-ui/core/styles";
@@ -15,26 +16,26 @@ const styles = theme => ({
   }
 });
 
-class RegisterLink extends React.Component {
-  render() {
-    const { classes } = this.props;
+const RegisterLink = props => {
+  const { classes } = props;
 
-    return (
-      <div className={classes.registerLink} >
-        <Typography
-          variant="subheading"
-        >
-          ¿Aún no tienes cuenta?
-        </Typography>
-        <Button
-          variant="text"
-          fullWidth
-        >
-          Crear cuenta
-        </Button>
-      </div>
-    );
-  }
+  return (
+    <div className={classes.registerLink} >
+      <Typography
+        variant="subheading"
+      >
+        ¿Aún no tienes cuenta?
+      </Typography>
+      <Button
+        component={Link}
+        to="/register"
+        variant="text"
+        fullWidth
+      >
+        Crear cuenta
+      </Button>
+    </div>
+  );
 }
 
 RegisterLink.propTypes = {

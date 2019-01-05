@@ -17,55 +17,59 @@ const styles = theme => ({
   }
 });
 
-class LoginForm extends React.Component {
-  render() {
-    const { classes } = this.props;
-    return (
-      <div>
-        <Typography
-          align="center"
-          variant="headline"
+const LoginForm = props => {
+  const { classes } = props;
+
+  return (
+    <div>
+      <Typography
+        align="center"
+        variant="headline"
+      >
+        Iniciar sesión
+      </Typography>
+      <form
+        className={classes.form}
+      >
+        <TextField
+          label="Correo"
+          name="email"
+          id="userEmail"
+          type="email"
+          variant="outlined"
+          fullWidth
+          className={classes.textField}
+          onChange={props.handleChange}
+        />
+        <TextField
+          label="Contraseña"
+          name="password"
+          id="userPassword"
+          type="password"
+          variant="outlined"
+          fullWidth
+          className={classes.textField}
+          onChange={props.handleChange}
+        />
+        <Button
+          type="submit"
+          color="primary"
+          variant="contained"
+          size="large"
+          fullWidth
+          onClick={props.handleLogin}
         >
-          Iniciar sesión
-        </Typography>
-        <form
-          className={classes.form}
-        >
-          <TextField
-            label="Correo"
-            name="email"
-            id="user-email"
-            type="email"
-            variant="outlined"
-            fullWidth
-            className={classes.textField}
-          />
-          <TextField
-            label="Contraseña"
-            name="password"
-            id="user-password"
-            type="password"
-            variant="outlined"
-            fullWidth
-            className={classes.textField}
-          />
-          <Button
-            type="submit"
-            color="primary"
-            variant="contained"
-            size="large"
-            fullWidth
-          >
-            Ingresar
-          </Button>
-        </form>
-      </div>
-    );
-  }
+          Ingresar
+        </Button>
+      </form>
+    </div>
+  );
 }
 
 LoginForm.propTypes = {
   classes: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(LoginForm);
